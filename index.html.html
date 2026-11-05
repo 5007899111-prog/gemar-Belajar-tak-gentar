@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dunia Penjelajah Ilmu — Misi Gemar Belajar</title>
+<style>
+:root{--ink:#203044;--muted:#64758a;--green:#23865f;--mint:#e3f6eb;--gold:#f5c85b;--line:#e7eadf}
+*{box-sizing:border-box}body{margin:0;background:#f4f7ed;color:var(--ink);font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif}
+button{font:inherit;cursor:pointer}.app{max-width:1050px;margin:auto;padding:18px}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 2px 18px}.logo{font-weight:1000;font-size:1.1rem}.logo span{color:var(--green)}.profile{background:#fff;border:1px solid var(--line);padding:9px 13px;border-radius:99px;font-size:.84rem;font-weight:800}
+.hero{border-radius:27px;background:linear-gradient(120deg,#245f4b,#3e9b70);color:white;padding:27px 30px;display:grid;grid-template-columns:1.3fr .7fr;align-items:center;gap:12px;box-shadow:0 16px 35px #245f4b24}.tag{font-size:.72rem;font-weight:900;letter-spacing:2px;opacity:.82}.hero h1{font-size:clamp(2rem,5vw,3.35rem);line-height:1;margin:10px 0}.hero p{max-width:600px;line-height:1.6;color:#e5f7ed}.heroArt{text-align:center;font-size:6.5rem}
+.btn{border:0;border-radius:13px;padding:12px 17px;background:var(--green);color:white;font-weight:900;box-shadow:0 4px 0 #176345}.btn:disabled{opacity:.45;cursor:not-allowed}.btn.light{background:#fff;color:#28694f;box-shadow:0 4px 0 #dcebe1}.btn.gold{background:#f3c65a;color:#4d3b12;box-shadow:0 4px 0 #d5a83e}.btn.ghost{background:#edf5ef;color:#28694f;box-shadow:none}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}.stat,.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:17px;box-shadow:0 8px 25px #2d49300a}.stat small{color:var(--muted);font-weight:800}.stat strong{display:block;font-size:1.4rem;margin-top:3px}.layout{display:grid;grid-template-columns:1.4fr .75fr;gap:16px}.card h2{font-size:1.22rem;margin:0 0 6px}.desc{color:var(--muted);font-size:.9rem;line-height:1.5;margin:0 0 16px}.xpbar{height:14px;background:#e4eadf;border-radius:30px;overflow:hidden;margin:10px 0 7px}.xpfill{height:100%;width:0;background:linear-gradient(90deg,#36a875,#f1c34e);border-radius:30px;transition:width .35s}.xpmeta{display:flex;justify-content:space-between;color:var(--muted);font-size:.82rem;font-weight:800}.quizbox{background:#f8faf5;border:1px solid var(--line);border-radius:17px;padding:17px;margin-top:14px}.qtop{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:.82rem;font-weight:850}.question{font-size:1.16rem;font-weight:900;line-height:1.45;margin:17px 0}.options{display:grid;gap:10px}.option{border:2px solid #e4e9df;background:white;border-radius:13px;padding:12px 14px;text-align:left;color:var(--ink);font-weight:750}.option:hover:not(:disabled){border-color:#71b38b}.option:disabled{cursor:default}.option.good{background:#e6f8ed;border-color:#38a56e}.option.bad{background:#fff0ee;border-color:#e28a7e}.feedback{min-height:48px;background:#eef6ed;border-radius:12px;padding:11px 13px;margin-top:12px;color:#45694f;font-size:.9rem;line-height:1.45;font-weight:700}.actions{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:14px}.treebox{border-radius:17px;background:linear-gradient(145deg,#e6f6e8,#f8f6d9);padding:15px;text-align:center;margin:12px 0}.tree{font-size:4rem}.tip{padding:13px;background:#f7faf3;border-radius:14px;margin-top:10px;color:#5d6d60;font-size:.88rem;line-height:1.5}.badge{display:inline-block;background:#fff2ce;color:#795d18;padding:7px 10px;border-radius:99px;font-size:.8rem;font-weight:900;margin:4px 3px 0 0}.hidden{display:none!important}.result{text-align:center;padding:20px 5px}.result .trophy{font-size:5rem}.result h2{font-size:1.8rem;margin:8px}.result p{color:var(--muted);line-height:1.6}.created{text-align:center;color:#879184;font-size:.82rem;padding:22px 0 8px}
+@media(max-width:740px){.app{padding:12px}.hero{grid-template-columns:1fr;padding:23px}.heroArt{display:none}.layout{grid-template-columns:1fr}.stats{gap:7px}.stat{padding:12px}.stat strong{font-size:1.2rem}.profile{font-size:.75rem}}
+</style></head>
+<body><div class="app">
+<header><div class="logo">🌿 <span>DUNIA</span> PENJELAJAH ILMU</div><div class="profile">🧭 Petualang: Kamu</div></header>
+<section class="hero"><div><div class="tag">SELAMAT DATANG, PENJELAJAH!</div><h1>Dunia Penjelajah Ilmu</h1><p>Siap memulai petualangan? Jawab kuis tentang kebiasaan gemar belajar, kumpulkan XP, dan raih penghargaan tertinggi!</p><button class="btn light" onclick="document.getElementById('intro').scrollIntoView({behavior:'smooth'})">Mulai penjelajahan →</button></div><div class="heroArt">🧭📚🏆</div></section>
+<section class="stats"><div class="stat"><small>✨ Energi ilmu</small><strong id="xpValue">0 XP</strong></div><div class="stat"><small>🎯 Soal selesai</small><strong id="doneValue">0 / 10</strong></div><div class="stat"><small>🌟 Jawaban tepat</small><strong id="correctValue">0</strong></div></section>
+<div class="layout">
+<section class="card"><h2>🎮 Tantangan Gemar Belajar</h2><p class="desc">Jawab setiap soal dalam 15 detik. Jawaban benar mendapat +5 XP. Jawaban salah atau waktu habis tidak mengurangi XP.</p>
+<div class="xpbar"><div class="xpfill" id="xpFill"></div></div><div class="xpmeta"><span id="xpLabel">0% energi terkumpul</span><span>Target: 100 XP</span></div>
+<div id="intro" class="quizbox"><div style="font-size:2.8rem">🚩</div><h3>Mulai Penjelajahan Ilmu</h3><p class="desc">Pilih jumlah soal. Setiap soal memiliki batas waktu 15 detik. Jawaban benar mendapat +5 XP, sedangkan jawaban salah atau waktu habis mendapat -5 XP.</p><div class="actions" style="justify-content:flex-start;flex-wrap:wrap"><button class="btn" onclick="startGame(10)">Mulai 10 Soal</button><button class="btn gold" onclick="startGame(20)">Tantangan 20 Soal</button></div><p class="desc" style="margin-top:12px">Selesaikan 10 soal untuk penghargaan Penjelajah Ilmu. Selesaikan 20 soal untuk penghargaan tertinggi: Master Penjelajah Ilmu!</p></div>
+<div id="quiz" class="quizbox hidden"><div class="qtop"><span id="qCounter">Soal 1 / 10</span><span id="timer">⏱️ 15 detik</span></div><div class="question" id="question"></div><div class="options" id="options"></div><div class="feedback" id="feedback">Pilih jawabanmu untuk melanjutkan.</div><div class="actions"><button class="btn ghost" id="backBtn" onclick="backToMenu()">← Kembali</button><span class="tiny" id="progressText">Jawab sebelum waktu habis!</span><button class="btn" id="nextBtn" onclick="nextQuestion()" disabled>Berikutnya →</button></div></div>
+<div id="result" class="quizbox result hidden"><div class="trophy" id="trophy">🏆</div><h2 id="resultTitle">Selamat!</h2><p id="resultText"></p><div class="treebox"><div style="font-size:3.6rem">🌳✨</div><b>Pohon Pengetahuan Tumbuh Maksimal!</b><div class="xpbar"><div class="xpfill" style="width:100%"></div></div><b>100 / 100 XP — FULL!</b></div><div id="award" class="badge">🏅 Penghargaan Penjelajah Ilmu</div><p><b>Terus pertahankan kebiasaan belajar setiap hari!</b></p><button class="btn gold" onclick="startGame()">Mainkan lagi ↻</button></div>
+</section>
+<aside class="card"><h2>🌱 Hadiah perjalanan</h2><p class="desc">Jawaban benar menambah XP dan membuat pohon pengetahuanmu tumbuh.</p><div class="treebox"><div class="tree" id="treeEmoji">🌱</div><b id="treeName">Bibit rasa ingin tahu</b><p class="tiny" id="treeHint">Selesaikan tantangan untuk menumbuhkannya.</p></div><h2 style="margin-top:18px">💡 Tips gemar belajar</h2><div class="tip"><b>1. Mulai dari 10 menit</b><br>Belajar sebentar secara rutin lebih mudah dijaga.</div><div class="tip"><b>2. Cari hal yang kamu suka</b><br>Hubungkan pelajaran dengan desain, musik, olahraga, atau hobi.</div><div class="tip"><b>3. Jangan takut salah</b><br>Kesalahan bisa menjadi petunjuk untuk belajar lagi.</div><div class="tip"><b>4. Beri waktu istirahat</b><br>Jeda membantu menjaga fokus dan semangat.</div><h2 style="margin-top:18px">🏅 Penghargaan</h2><div id="badges"><span class="badge">🔒 Penjelajah Ilmu</span></div></aside>
+</div>
+<div class="created">Created by <b>Muhamad khafi Anuqman Bayhaqi</b> · Belajar adalah petualangan tanpa akhir 🌟</div>
+</div>
+
+<script>
+const questions=[{"q":"Apa langkah paling baik untuk mulai membangun kebiasaan belajar?","a":["Menunggu sampai merasa sangat ingin belajar","Memulai dari waktu singkat dan rutin","Belajar hanya saat akan ujian","Mengerjakan semua pelajaran sekaligus"],"c":1,"e":"Memulai dari waktu singkat membuat kebiasaan lebih mudah dilakukan secara konsisten."},{"q":"Saat menemukan materi yang sulit dipahami, apa yang sebaiknya dilakukan?","a":["Menyerah dan tidak mencobanya lagi","Melewati semua materi yang sulit","Membaca ulang, mencari contoh, atau bertanya","Menghafal tanpa memahami"],"c":2,"e":"Mencari penjelasan lain dan bertanya membantu kita memahami materi secara bertahap."},{"q":"Mengapa membuat jadwal belajar sederhana itu bermanfaat?","a":["Membantu mengatur waktu belajar dan istirahat","Membuat kita harus belajar sepanjang hari","Menghilangkan waktu untuk kegiatan lain","Membuat semua materi langsung mudah"],"c":0,"e":"Jadwal membantu membagi waktu agar belajar, istirahat, dan kegiatan lain lebih seimbang."},{"q":"Apa yang bisa dilakukan agar belajar terasa lebih menyenangkan?","a":["Membandingkan nilai dengan teman","Memilih cara belajar yang sesuai minat","Memaksakan diri belajar tanpa jeda","Menghindari topik yang belum dikenal"],"c":1,"e":"Menghubungkan pelajaran dengan minat dapat membuat kita lebih penasaran dan bersemangat."},{"q":"Setelah membaca satu materi, kebiasaan apa yang membantu mengingat isinya?","a":["Langsung melupakan materi","Membuka banyak aplikasi sekaligus","Menjelaskan kembali dengan kata-kata sendiri","Hanya melihat judulnya"],"c":2,"e":"Menceritakan kembali isi materi membantu kita memeriksa pemahaman dan mengingat gagasan utama."},{"q":"Apa tindakan yang baik ketika perhatian mulai terganggu saat belajar?","a":["Memeriksa semua notifikasi","Membuka hiburan lain","Berhenti belajar selamanya","Menjauhkan gangguan dan kembali fokus"],"c":3,"e":"Mengurangi gangguan membuat perhatian lebih mudah diarahkan kembali ke kegiatan belajar."},{"q":"Jika hasil belajar belum sesuai harapan, sikap yang tepat adalah…","a":["Menganggap diri tidak mampu","Mencari bagian yang perlu diperbaiki lalu mencoba lagi","Tidak mau belajar materi itu lagi","Menyalahkan orang lain"],"c":1,"e":"Evaluasi membantu mengetahui hal yang perlu diperbaiki dan menentukan langkah selanjutnya."},{"q":"Manakah contoh target belajar yang realistis?","a":["Memahami satu topik dalam sesi 15 menit","Menguasai semua mata pelajaran dalam sehari","Tidak pernah membuat kesalahan","Belajar tanpa berhenti sampai malam"],"c":0,"e":"Target kecil, jelas, dan terukur lebih mudah dicapai serta dijadikan kebiasaan."},{"q":"Mengapa istirahat juga penting dalam kegiatan belajar?","a":["Supaya tidak perlu melanjutkan belajar","Agar semua tugas bisa ditinggalkan","Membantu memulihkan energi dan menjaga fokus","Karena belajar tidak ada manfaatnya"],"c":2,"e":"Istirahat yang cukup membantu tubuh dan pikiran kembali siap untuk belajar."},{"q":"Apa kunci agar kebiasaan gemar belajar bertahan dalam jangka panjang?","a":["Belajar hanya ketika disuruh","Menunggu motivasi datang setiap saat","Mengerjakan semuanya sekaligus","Belajar sedikit demi sedikit secara konsisten"],"c":3,"e":"Konsistensi dalam langkah kecil membantu kebiasaan belajar bertahan dan berkembang."},{"q":"Apa manfaat mencatat hal penting saat belajar?","a":["Membuat catatan panjang tanpa tujuan","Membantu mengingat dan mengulang materi","Menggantikan semua kegiatan belajar","Membuat kita tidak perlu membaca"],"c":1,"e":"Catatan singkat membantu mengingat gagasan utama."},{"q":"Apa yang sebaiknya dilakukan sebelum mulai belajar?","a":["Menyiapkan buku dan alat yang diperlukan","Membuka semua media sosial","Menunda sampai larut malam","Mengerjakan hal lain terlebih dahulu"],"c":0,"e":"Persiapan sederhana membuat kegiatan belajar lebih terarah."},{"q":"Saat belajar bersama teman, sikap yang baik adalah…","a":["Mendominasi pembicaraan","Tidak mendengarkan pendapat","Saling menjelaskan dan menghargai pendapat","Menyalin jawaban tanpa memahami"],"c":2,"e":"Diskusi yang baik memberi kesempatan semua orang berbagi pemahaman."},{"q":"Bagaimana cara menggunakan internet untuk membantu belajar?","a":["Memercayai semua informasi tanpa memeriksa","Mencari sumber tepercaya dan membandingkan informasi","Hanya membuka hiburan","Menyalin seluruh isi halaman"],"c":1,"e":"Memeriksa sumber membantu memperoleh informasi yang lebih akurat."},{"q":"Apa contoh rasa ingin tahu dalam belajar?","a":["Menghindari pertanyaan","Menerima semua hal tanpa berpikir","Bertanya ketika menemukan hal yang belum dipahami","Tidak mau mencoba hal baru"],"c":2,"e":"Bertanya adalah cara untuk memperluas pengetahuan."},{"q":"Jika memiliki tugas besar, langkah yang paling membantu adalah…","a":["Membaginya menjadi beberapa bagian kecil","Menunggu sampai batas waktu terakhir","Mengerjakan semuanya sekaligus tanpa rencana","Mengabaikan tugas tersebut"],"c":0,"e":"Membagi tugas menjadi bagian kecil membuat pekerjaan lebih teratur."},{"q":"Mengapa penting memeriksa kembali hasil pekerjaan?","a":["Agar pekerjaan selesai lebih lama","Untuk mencari dan memperbaiki kesalahan","Supaya tidak perlu belajar lagi","Karena semua jawaban pasti salah"],"c":1,"e":"Memeriksa kembali membantu menemukan hal yang bisa diperbaiki."},{"q":"Apa sikap yang tepat saat teman lebih cepat memahami pelajaran?","a":["Merasa harus menyerah","Mengejek teman","Berhenti mencoba","Tetap belajar dengan cara dan kecepatan sendiri"],"c":3,"e":"Setiap orang memiliki proses belajar yang berbeda."},{"q":"Kapan waktu yang baik untuk mengulang materi?","a":["Secara berkala setelah mempelajarinya","Hanya ketika sudah lupa semuanya","Tidak perlu mengulang","Hanya saat terburu-buru"],"c":0,"e":"Mengulang materi secara berkala membantu pengetahuan lebih mudah diingat."},{"q":"Apa arti belajar sepanjang hayat?","a":["Belajar hanya di sekolah","Belajar hanya untuk mendapat nilai","Terus mau menambah pengetahuan dan keterampilan","Berhenti belajar setelah lulus"],"c":2,"e":"Belajar dapat dilakukan kapan saja untuk mengembangkan diri."}];
+let order=[],idx=0,xp=0,correct=0,answered=false,totalQuestions=10,timerId=null,timeLeft=15,earnedMax=50;
+function stopTimer(){if(timerId!==null){clearInterval(timerId);timerId=null;}}
+function update(){
+ document.getElementById('xpValue').textContent=xp+' XP';
+ document.getElementById('doneValue').textContent=idx+' / '+totalQuestions;
+ document.getElementById('correctValue').textContent=correct;
+ const percent=Math.max(0,Math.min(100,(xp/earnedMax)*100));
+ document.getElementById('xpFill').style.width=percent+'%';
+ document.getElementById('xpLabel').textContent=xp+' XP · '+Math.round(percent)+'% dari target';
+ let stage=xp>=earnedMax?['🌳','Pohon Pengetahuan Maksimal']:xp>=earnedMax*.6?['🌲','Pohon Pengetahuan Tumbuh']:xp>0?['🌱','Tunas Pengetahuan']:['🌱','Bibit rasa ingin tahu'];
+ document.getElementById('treeEmoji').textContent=stage[0];
+ document.getElementById('treeName').textContent=stage[1];
+ document.getElementById('treeHint').textContent=xp>=earnedMax?'Hebat! XP mencapai target maksimal.':`Terus berusaha! Target maksimal ${earnedMax} XP.`;
+}
+function startGame(count){
+ stopTimer();totalQuestions=count;earnedMax=count*5;
+ order=[...questions.keys()].sort(()=>Math.random()-.5).slice(0,count);
+ idx=0;xp=0;correct=0;
+ document.getElementById('intro').classList.add('hidden');
+ document.getElementById('result').classList.add('hidden');
+ document.getElementById('quiz').classList.remove('hidden');
+ document.getElementById('badges').innerHTML='<span class="badge">🔒 Penghargaan belum diraih</span>';
+ update();showQuestion();
+}
+function showQuestion(){
+ stopTimer();answered=false;timeLeft=15;
+ const q=questions[order[idx]];
+ document.getElementById('qCounter').textContent=`Soal ${idx+1} / ${totalQuestions}`;
+ document.getElementById('timer').textContent='⏱️ 15 detik';
+ document.getElementById('question').textContent=q.q;
+ document.getElementById('feedback').textContent='Pilih jawaban yang paling tepat sebelum waktu habis.';
+ document.getElementById('progressText').textContent='Benar: +5 XP · Salah/waktu habis: +0 XP';
+ document.getElementById('nextBtn').disabled=true;
+ document.getElementById('nextBtn').textContent=idx===totalQuestions-1?'Selesaikan penjelajahan 🏆':'Berikutnya →';
+ const options=document.getElementById('options');options.innerHTML='';
+ q.a.forEach((a,i)=>{const b=document.createElement('button');b.className='option';b.textContent=a;b.onclick=()=>choose(i);options.appendChild(b);});
+ timerId=setInterval(()=>{
+   if(answered)return;
+   timeLeft--;
+   document.getElementById('timer').textContent='⏱️ '+timeLeft+' detik';
+   if(timeLeft<=0){stopTimer();choose(-1);}
+ },1000);
+}
+function choose(i){
+ if(answered)return;
+ answered=true;stopTimer();
+ const q=questions[order[idx]],buttons=[...document.querySelectorAll('.option')];
+ buttons.forEach((b,n)=>{b.disabled=true;if(n===q.c)b.classList.add('good');else if(n===i)b.classList.add('bad');});
+ if(i===q.c){
+   correct++;xp+=5;
+   document.getElementById('feedback').textContent='🎉 Benar! +5 XP. '+q.e;
+   document.getElementById('progressText').textContent='+5 XP didapat!';
+ }else{
+   document.getElementById('feedback').textContent=(i===-1?'⏰ Waktu habis! XP tidak berubah. ':'🌱 Jawaban belum tepat. XP tidak berubah. ')+q.e;
+   document.getElementById('progressText').textContent='XP tidak berubah. Tetap semangat!';
+ }
+ update();
+ document.getElementById('doneValue').textContent=(idx+1)+' / '+totalQuestions;
+ document.getElementById('nextBtn').disabled=false;
+}
+function backToMenu(){
+ stopTimer();
+ document.getElementById('quiz').classList.add('hidden');
+ document.getElementById('result').classList.add('hidden');
+ document.getElementById('intro').classList.remove('hidden');
+ // Reset the current run so the player can choose a mode again.
+ idx=0;xp=0;correct=0;answered=false;
+ document.getElementById('badges').innerHTML='<span class="badge">🔒 Penghargaan belum diraih</span>';
+ update();
+ document.getElementById('doneValue').textContent='0 / 10';
+ document.getElementById('intro').scrollIntoView({behavior:'smooth'});
+}
+function nextQuestion(){
+ if(!answered)return;
+ if(idx<totalQuestions-1){idx++;showQuestion();}
+ else finish();
+}
+function finish(){
+ stopTimer();idx=totalQuestions;update();
+ document.getElementById('doneValue').textContent=totalQuestions+' / '+totalQuestions;
+ document.getElementById('quiz').classList.add('hidden');
+ document.getElementById('result').classList.remove('hidden');
+ const highest=totalQuestions===20;
+ document.getElementById('trophy').textContent=highest?'🏆':'🥇';
+ document.getElementById('resultTitle').textContent=highest?'SELAMAT, MASTER PENJELAJAH ILMU!':'SELAMAT, PENJELAJAH ILMU!';
+ document.getElementById('resultText').textContent=`Kamu telah menuntaskan ${totalQuestions} soal! Jawaban benar: ${correct}. XP akhir: ${xp}. Terima kasih sudah menyelesaikan petualangan belajar ini. Teruslah ingin tahu dan semangat belajar!`;
+ document.getElementById('award').textContent=highest?'🏆 PENGHARGAAN TERTINGGI: MASTER PENJELAJAH ILMU':'🥇 PENGHARGAAN: PENJELAJAH ILMU';
+ document.getElementById('badges').innerHTML=highest?'<span class="badge">🏆 Master Penjelajah Ilmu</span>':'<span class="badge">🥇 Penjelajah Ilmu</span>';
+ document.querySelector('#result .treebox b').textContent=highest?'Master Penjelajah Ilmu — Penghargaan Tertinggi!':'Penjelajah Ilmu — Misi 10 Soal Tuntas!';
+ document.querySelector('#result .treebox .xpbar .xpfill').style.width=Math.max(0,Math.min(100,(xp/earnedMax)*100))+'%';
+ document.querySelector('#result .treebox b:last-child').textContent=xp+' XP';
+}
+update();
+</script>
+</body></html>
